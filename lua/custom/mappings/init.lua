@@ -23,10 +23,10 @@ map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
 map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
 map('n', '<leader>bp', '<Cmd>BufferPin<CR>', opts)
--- Close buffer
-map('n', '<leader>bx', '<Cmd>BufferClose<CR>', opts)
-map('n', '<leader>bw', '<Cmd>BufferWipeout<CR>', opts)
-map('n', '<leader>bxa', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
+-- -- Close buffer
+-- map('n', '<leader>bx', '<Cmd>BufferClose<CR>', opts)
+-- map('n', '<leader>bw', '<Cmd>BufferWipeout<CR>', opts)
+map('n', '<leader>X', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 map('n', '<leader>br', '<Cmd>BufferRestore<CR>', opts)
 -- Wipeout buffer
 --                 :BufferWipeout
@@ -44,6 +44,10 @@ map('n', '<leader>bol', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<leader>bow', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = 'Go back to directory' });
+vim.keymap.set('n', '<leader>x', function()
+	vim.cmd([[bd]])
+	vim.cmd([[bn]])
+end, { desc = 'Close buffer' })
 vim.keymap.set('n', '<leader>fa', '<cmd> EslintFixAll <CR>', { desc = 'Fix all eslint issues' })
 vim.keymap.set('n', '<leader>ff', '<cmd>Format<CR>', { desc = 'Format file' })
 
